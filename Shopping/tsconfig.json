@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "removeComments": false,
+        "sourceMap": true,
+        "outDir": "mjs",
+        "watch": true
+    },
+    "exclude": [
+       "css",
+       "fonts",
+       "imgs",
+       "mjs",
+       "mjs",
+       "node_modules"
+    ]
+}

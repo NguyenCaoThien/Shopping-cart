@@ -1,0 +1,32 @@
+div.media-image img {
+    max-width: 117px;
+    min-height: 93px;
+}
+
+div.media-body {
+    position: relative;
+    padding-left: 12px;
+}
+
+div.media-body input{
+    position: absolute;
+    right: -1px;
+    top: 12px;
+}
+
+div.media-body a {
+    position: absolute;
+    right: 0px;
+    bottom: 3px;
+    background-color: lightskyblue;
+    font-size: 16px;
+    color: white;
+    padding: 0px 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+div.media-body a.disabled{
+    pointer-events: none;
+    background-color: grey;
+}

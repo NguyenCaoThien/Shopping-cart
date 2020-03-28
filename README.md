@@ -1,2 +1,2 @@
 # nguyenthien250797-gmail.com
-SimpleShoppingCartTS
+Simple shopping cart project. This project is for learning purpose only.

@@ -1,2 +1,2 @@
-# nguyenthien250797@gmail.com
-Simple shopping cart project. This project is for learning purpose only.
+Shopping cart project
+Simple shopping cart project. This project is for learning Typescript purpose only.

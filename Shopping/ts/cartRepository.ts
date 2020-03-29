@@ -7,24 +7,31 @@ export class cartRepository{
     // Variables
     private carts : Cart[] = [];
     private cartItemHTML = "";
+    private ordinalNumbers = 0;
 
-    public addFoodToCart(foodItem : Food, ordinalNumbers : number, inputValue : number): void{    
+    public addFoodToCart(foodItem : Food,  inputValue : number): void{    
         debugger;                
-        var indexOfCartItem = this.isFoodItemExistInCarList(foodItem.getId());
+        var indexOfCartItem = this.getIndexOfFoodItemInCartList(foodItem.getId());
         var cartList = this.carts;
 
         if(indexOfCartItem !== -1){
-
+            this.cartItemHTML = "";
+            this.ordinalNumbers = 0;
             var updatedQuantity =  inputValue + cartList[indexOfCartItem].quantity;
             cartList[indexOfCartItem].setQuantity(updatedQuantity);
+
+            cartList.forEach(cartItem => {
+            this.ordinalNumbers = this.ordinalNumbers + 1;
+                this.cartItemHTML += this.getCartItemHTML(cartItem, this.ordinalNumbers);
+            });
             //this.cartItemHTML += this.getCartItemHTML(cartList[indexOfCartItem], ordinalNumbers);
-            $(`#cart-item tbody #row${++indexOfCartItem}`).find('.quantity').html(updatedQuantity.toString());
-            $('#cart-item tbody').html(this.cartItemHTML)
+            //$(`#cart-item tbody #row${++indexOfCartItem}`).find('.quantity').html(updatedQuantity.toString());
+            $('#cart-item tbody').html(this.cartItemHTML);
         }
         else{
             cartList.push(new Cart(foodItem, inputValue));
             var cartItem = this.getCartItemById(foodItem.getId(), cartList);
-            this.cartItemHTML += this.getCartItemHTML(cartItem, ordinalNumbers);
+            this.cartItemHTML += this.getCartItemHTML(cartItem, ++this.ordinalNumbers);
             $('#cart-item tbody').html(this.cartItemHTML)
         }
       
@@ -42,7 +49,7 @@ export class cartRepository{
         return null;
     }
 
-    public isFoodItemExistInCarList(itemId : string){
+    public getIndexOfFoodItemInCartList(itemId : string){
         var len = this.carts.length;
         for(var i= 0; i < len; i++){
             if(this.carts[i].food.getId() === itemId){
@@ -55,12 +62,13 @@ export class cartRepository{
 
   
     public getCartItemHTML(cartItem : Cart, ordinalNumbers : number): string{
-        var price = cartItem.food.getPrice();
-        var quantity = cartItem.getQuantity();
+        let price = cartItem.food.getPrice();
+        let quantity = cartItem.getQuantity();
+        let foodName = cartItem.food.getFoodName() ;
        // var subTotal = 
         return ` <tr id='row${ordinalNumbers}'>
         <td scope="row">${ordinalNumbers}</td>
-        <td>3</td>
+        <td>${foodName}</td>
         <td>${price}</td>
         <td class= "quantity">${quantity}</td>
         <td>${price * quantity}</td>

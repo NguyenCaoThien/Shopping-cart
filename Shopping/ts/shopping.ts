@@ -16,7 +16,6 @@ function displayFoodListHTML(){
 }
 
 $(document).ready(function(){
-    var ordinalNumbers = 0;
     displayFoodListHTML();  
 
     $('.media-body a').click(function ( event) {
@@ -31,7 +30,7 @@ $(document).ready(function(){
             return;
         }
 
-        cartRepo.addFoodToCart(foodItem, ++ordinalNumbers, parseInt(inputValue.toString()))
+        cartRepo.addFoodToCart(foodItem, parseInt(inputValue.toString()))
         return false;
     })
 })

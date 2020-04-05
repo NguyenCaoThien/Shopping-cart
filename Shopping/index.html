@@ -24,7 +24,7 @@
                   </div>
                 </div>
               <div class="col-lg-6">
-                  <table class="table table-striped table-inverse table-responsive bordered" id="cart-item">
+                  <table class="table table-striped table-inverse table-responsive bordered" id="cart-item-tab">
                       <thead class="thead-inverse">
                           Your cart
                           <tr>
@@ -39,7 +39,16 @@
                           <tbody>
                                                           
                           </tbody>
+                          <tfoot class="footer-message">
+                            <tr>
+                              <td colspan="4">No item in your shopping cart!</td>
+                              <td colspan="2" class="total-price"></td>
+                            </tr>
+                          </tfoot>
                   </table>
+                  <div class="alert alert-success" id="notif-message">
+                      Ready to buy product!
+                  </div>
             </div>
           </div>
       </div>

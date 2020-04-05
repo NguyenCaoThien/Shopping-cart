@@ -5,6 +5,6 @@ export class CommonTs{
 
     public static validateInputValueTextbox(inputValue){
         var validCharacter = /[1-9]/g;
-        return validCharacter.test(inputValue);
+        return validCharacter.test(inputValue) && inputValue > 0 && isFinite(inputValue);
     }
 }

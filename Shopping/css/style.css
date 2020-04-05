@@ -30,3 +30,12 @@ div.media-body a.disabled{
     pointer-events: none;
     background-color: grey;
 }
+
+.total-price{
+    font-weight: bold;
+}
+
+.cart-item button{
+    font-size: 75%;
+    margin: 5px;
+}
